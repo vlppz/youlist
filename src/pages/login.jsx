@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { Input, ButtonSubmit, Button } from '../Components'
 
-export default function Home() {
+export default function Login() {
   return (
     <main>
       <Head>
@@ -14,9 +14,9 @@ export default function Home() {
       <div className='w-screen h-screen flex items-center justify-center'>
         <form action='/api/login' method='post' className='flex items-center flex-col'>
           <h1 className='text-4xl font-light mb-2'>Login: </h1>
-          <Input type="text" name="username" className="mb-5" placeholder="Username" />
-          <Input type="password" name="password" className="mb-2" placeholder="Password" />
-          <Link href="/signup" className="transition-all ease-in-out duration-300 text-blue-500 hover:text-blue-700 mb-5">I don't have an account</Link>
+          <Input type="text" name="username" className="mb-5" placeholder="Username" required={true} />
+          <Input type="password" name="password" className="mb-2" placeholder="Password" required={true}   />
+          <Link href="/signup" className="transition-all ease-in-out duration-300 text-blue-500 hover:text-blue-700 mb-5">I don&apos;t have an account</Link>
           <ButtonSubmit text="Login" />
         </form>
       </div>

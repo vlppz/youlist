@@ -97,7 +97,7 @@ function CardListItem(props) {
 
 function Input(props) {
     return (
-        <input type={props.type} className={props.className + " border-solid border-gray-400 hover:border-gray-600 focus:border-gray-600 outline-none border-2 rounded-lg p-2 text-lg transition-all ease-in-out duration-300 focus:shadow-lg"} name={props.name} disabled={props.disabled} placeholder={props.placeholder} />
+        <input type={props.type} className={props.className + " border-solid border-gray-400 hover:border-gray-600 focus:border-gray-600 outline-none border-2 rounded-lg p-2 text-lg transition-all ease-in-out duration-300 focus:shadow-lg"} name={props.name} disabled={props.disabled} placeholder={props.placeholder} onChange={props.onChange} required={props.required} />
     )
 }
 

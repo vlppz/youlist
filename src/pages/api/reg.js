@@ -4,16 +4,20 @@ const prisma = new PrismaClient();
 
 export default async function reg(req, res) {
     if (req.method === "POST") {
-        var shajs = require('sha.js')
-        const user = await prisma.user.create({
-            data: {
-                email: req.body.email,
-                username: req.body.username,
-                pass_hash: shajs("sha256").update(req.body.password).digest("hex")
+        var shajs = require('sha.js');
+        try {
+            await prisma.user.create({
+                data: {
+                    email: req.body.email,
+                    username: req.body.username,
+                    pass_hash: shajs("sha256").update(req.body.password).digest("hex")
+                }
+            });
+            res.status(200).json({success: true});
+        } catch (e) {
+            if (e.code === "P2002") {
+                res.status(200).redirect("/signup?error=This user already exists!");
             }
-        });
-        user.id = user.id.toString();
-
-        res.status(200).json(user);
+        }
     }
 }

@@ -3,15 +3,21 @@ generator client {
 }
 
 datasource db {
-  provider = "cockroachdb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id        BigInt   @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   email     String   @unique
-  username  String
+  username  String   @unique
   pass_hash String
+}
+
+model UserLogin {
+  id      Int       @id @default(autoincrement())
+  user_id Int
+  ip      String
 }
