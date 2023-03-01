@@ -1,8 +1,13 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { Input, ButtonSubmit } from '../Components'
+import { PrismaClient } from '@prisma/client'
+import requestIp from 'request-ip'
+
+const prisma = new PrismaClient();
 
 export default function Home() {
+  
   useEffect(() => {
     window.location.href = "/login";
   }, [])

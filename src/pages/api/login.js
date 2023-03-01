@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export default async function login(req, res) {
     if (req.method === "POST") {
         var shajs = require('sha.js');
-        const ip = await requestIp.getClientIp(req);
+        const ip = requestIp.getClientIp(req);
 
         const user = await prisma.user.findMany({
             where: {
