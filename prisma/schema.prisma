@@ -20,4 +20,5 @@ model UserLogin {
   id      Int       @id @default(autoincrement())
   user_id Int
   ip      String
+  token   String    @unique @default(uuid())
 }

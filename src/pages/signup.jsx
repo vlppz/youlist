@@ -57,7 +57,7 @@ export default function Register() {
       </Head>
       <div className='w-screen h-screen flex items-center justify-center'>
         <form action='/api/reg' method='post' className='flex items-center flex-col' onSubmit={handleSubmit}>
-          <h1 className='text-4xl font-light mb-2'>Register: </h1>
+          <h1 className='text-4xl font-light mb-2 dark:text-white'>Register: </h1>
           <Input type="text" name="username" className="mb-1" placeholder="Username" required={true} />
           <Input type="email" name="email" className="mb-4" placeholder="Email" required={true} />
           <Input type="password" name="password" className="mb-1" placeholder="Password" onChange={handlePassChange} required={true} />
