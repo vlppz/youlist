@@ -13,7 +13,7 @@ export default async function reg(req, res) {
                     pass_hash: shajs("sha256").update(req.body.password).digest("hex")
                 }
             });
-            res.status(200).json({success: true});
+            res.status(200).redirect("/login?success=Registered successfully!")
         } catch (e) {
             if (e.code === "P2002") {
                 res.status(200).redirect("/signup?error=This user already exists!");

@@ -25,18 +25,30 @@ export default function Register() {
       event.target.classList.remove('border-red-300')
       event.target.classList.remove('hover:border-red-500')
       event.target.classList.remove('focus:border-red-500')
+      event.target.classList.remove('dark:border-red-300')
+      event.target.classList.remove('dark:hover:border-red-500')
+      event.target.classList.remove('dark:focus:border-red-500')
 
       event.target.classList.add('border-teal-400')
       event.target.classList.add('hover:border-teal-600')
       event.target.classList.add('focus:border-teal-600')
+      event.target.classList.add('dark:border-teal-300')
+      event.target.classList.add('dark:hover:border-teal-500')
+      event.target.classList.add('dark:focus:border-teal-500')
     } else {
       event.target.classList.remove('border-teal-400')
       event.target.classList.remove('hover:border-teal-600')
       event.target.classList.remove('focus:border-teal-600')
+      event.target.classList.remove('dark:border-teal-300')
+      event.target.classList.remove('dark:hover:border-teal-500')
+      event.target.classList.remove('dark:focus:border-teal-500')
 
       event.target.classList.add('border-red-300')
       event.target.classList.add('hover:border-red-500')
       event.target.classList.add('focus:border-red-500')
+      event.target.classList.add('dark:border-red-300')
+      event.target.classList.add('dark:hover:border-red-500')
+      event.target.classList.add('dark:focus:border-red-500')
     }
   }
 
@@ -61,7 +73,7 @@ export default function Register() {
           <Input type="text" name="username" className="mb-1" placeholder="Username" required={true} />
           <Input type="email" name="email" className="mb-4" placeholder="Email" required={true} />
           <Input type="password" name="password" className="mb-1" placeholder="Password" onChange={handlePassChange} required={true} />
-          <Input type="password" name="password2" className="mb-5 border-red-300 hover:border-red-500 focus:border-red-500" placeholder="Retype password" onChange={handlePassRetypeChange} required={true} />
+          <Input type="password" name="password2" className="mb-5 border-red-300 hover:border-red-500 focus:border-red-500 dark:border-red-300 dark:hover:border-red-500 dark:focus:border-red-500" placeholder="Retype password" onChange={handlePassRetypeChange} required={true} />
           <ButtonSubmit text="Register" />
         </form>
       </div>

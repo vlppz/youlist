@@ -1,8 +1,20 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { Input, ButtonSubmit, Button } from '../Components'
+import { toast, ToastContainer, Zoom } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
 
 export default function Login() {
+  const { query } = useRouter();
+
+  useEffect(() => {
+    if (query.success !== undefined) {
+      toast.success(query.success, { position: "bottom-center", autoClose: 3000, closeOnClick: true, draggable: true, pauseOnHover: false, theme: "light" });
+    }
+  }, [query])
+
   return (
     <main>
       <Head>
@@ -20,6 +32,7 @@ export default function Login() {
           <ButtonSubmit text="Login" />
         </form>
       </div>
+      <ToastContainer position="bottom-center" theme="light" transition={Zoom} />
     </main>
   )
 }
