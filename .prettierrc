@@ -1,0 +1,9 @@
+{
+    "printWidth": 90,
+    "useTabs": true,
+    "singleQuote": true,
+    "semi": true,
+    "tabWidth": 4,
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "pluginSearchDirs": ["."]
+}
