@@ -18,7 +18,12 @@ export default async function reg(req, res) {
 
             if (status.length > 0) {
                 if (ip === status[0].ip) {
-                    res.status(200).json({ success: true });
+                    const user = await prisma.user.findMany({
+                        where: {
+                            id: status[0].user_id,
+                        },
+                    });
+                    res.status(200).json({ success: true, user: user[0].username });
                 } else {
                     res.status(200).json({ success: false });
                 }
