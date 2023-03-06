@@ -281,6 +281,20 @@ function Spinner(props) {
     );
 }
 
+function YtVid(props) {
+    return (
+        <iframe
+            className={props.className}
+            width={props.width}
+            height={props.height}
+            src={'https://www.youtube.com/embed/' + props.id}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+        ></iframe>
+    );
+}
+
 export {
     Button,
     Link,
@@ -297,4 +311,5 @@ export {
     Checkbox,
     Tab,
     Spinner,
+    YtVid,
 };
