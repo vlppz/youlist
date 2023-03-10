@@ -25,9 +25,11 @@ export default function Register() {
     }, [query]);
 
     function handlePassChange(event) {
-        setPass(event.target.value);
+        if (event.target.value != '') {
+            setPass(event.target.value);
 
-        checkPassRetype(event.target.value, document.getElementById('pass2'));
+            checkPassRetype(event.target.value, document.getElementById('pass2'));
+        }
     }
 
     function checkPassRetype(pass, target) {

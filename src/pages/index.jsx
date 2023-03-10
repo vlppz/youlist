@@ -8,10 +8,10 @@ export default function Home() {
     const [loaded, setLoaded] = useState(false);
     const [user, setUser] = useState('');
     const [submitted, setSubmitted] = useState(false);
-    const [vid_id, setVid_id] = useState('');
+    const [vid_ids, setVid_ids] = useState([]);
 
     async function fetchLogin() {
-        var resp = await axios.get('/api/checkLogin');
+        var resp = await axios.post('/api/checkLogin');
 
         return resp;
     }
@@ -34,8 +34,9 @@ export default function Home() {
         });
     }, []);
 
-    function logOut() {
+    async function logOut() {
         setSubmitted(true);
+        await axios.post('/api/logout');
         deleteCookie('token');
         window.location.href = '/';
     }
@@ -44,17 +45,20 @@ export default function Home() {
         event.preventDefault();
 
         var link = event.target[0].value;
+        var vid_id = '';
 
         if (link.includes('youtu.be')) {
-            setVid_id(link.substring(link.lastIndexOf('/'), link.length));
+            vid_id = link.substring(link.lastIndexOf('/'), link.length);
         } else if (link.includes('youtube.com/watch?v=')) {
             if (link.includes('&')) {
                 var tmp = link.substring(link.indexOf('=') + 1, link.length);
-                setVid_id(tmp.substring(0, tmp.indexOf('&')));
+                vid_id = tmp.substring(0, tmp.indexOf('&'));
             } else {
-                setVid_id(link.substring(link.indexOf('=') + 1, link.length));
+                vid_id = link.substring(link.indexOf('=') + 1, link.length);
             }
         }
+
+        setVid_ids([...vid_ids, vid_id]);
     }
 
     return (
@@ -65,10 +69,10 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="flex h-screen w-screen items-center justify-center">
+            <div className="flex h-screen justify-center">
                 {loaded ? (
-                    <div>
-                        <nav className="fixed top-0 left-0 flex w-screen items-center justify-between p-5 backdrop-blur-md">
+                    <div className="w-screen">
+                        <nav className="z-10 flex w-full items-center justify-between p-5 backdrop-blur-md">
                             <h1 className="text-xl font-light dark:text-white">
                                 Youlist
                             </h1>
@@ -97,30 +101,36 @@ export default function Home() {
                             />
                         </nav>
 
-                        <div className="mt-44 flex flex-col items-center justify-center">
+                        <div className="mt-10 flex flex-col items-center justify-center">
                             <h1 className="mb-10 text-5xl font-bold dark:text-white">
                                 Hello, {user}
                             </h1>
                             <form
-                                className="flex flex-col items-center justify-center"
+                                className="mb-5 flex flex-col items-center justify-center"
                                 onSubmit={handleSubmit}
                             >
                                 <Input
                                     className="mb-5"
                                     placeholder="Link to youtube video"
                                 />
-                                <ButtonSubmit text="Open!" />
+                                <div>
+                                    <ButtonSubmit text="Add to list!" className="mr-5" />
+                                    <Button text="Share!" />
+                                </div>
                             </form>
-                            <YtVid
-                                id={vid_id}
-                                width="1006"
-                                height="566"
-                                className="mt-12"
-                            />
+
+                            {vid_ids.map((el, idx) => (
+                                <div key={idx} className="mb-5 flex">
+                                    <h1 className="mr-5 text-2xl dark:text-white">
+                                        {idx + 1}.
+                                    </h1>
+                                    <YtVid id={el} />
+                                </div>
+                            ))}
                         </div>
                     </div>
                 ) : (
-                    <div className="flex">
+                    <div className="flex h-screen items-center">
                         <Spinner className="mr-3 h-10 w-10 border-4 border-t-black dark:border-t-white" />
                         <h1 className="text-5xl dark:text-white">Please wait...</h1>
                     </div>

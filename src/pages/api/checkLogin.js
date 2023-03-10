@@ -5,7 +5,7 @@ import requestIp from 'request-ip';
 const prisma = new PrismaClient();
 
 export default async function reg(req, res) {
-    if (req.method === 'GET') {
+    if (req.method === 'POST') {
         if (hasCookie('token', { req, res })) {
             const token = getCookie('token', { req, res });
             const ip = requestIp.getClientIp(req);

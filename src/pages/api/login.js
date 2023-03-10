@@ -16,29 +16,28 @@ export default async function login(req, res) {
             },
         });
 
-        const logins = await prisma.userLogin.findMany({
-            where: {
-                ip: ip,
-            },
-        });
-
         if (user.length === 0) {
             res.status(200).redirect('/login?error=Incorrect username or password!');
         } else {
-            var status;
+            var logins = await prisma.userLogin.findMany({
+                where: {
+                    ip: ip,
+                },
+            });
+
             if (logins.length === 0) {
-                status = await prisma.userLogin.create({
+                var status = await prisma.userLogin.create({
                     data: {
                         user_id: user[0].id,
                         ip: ip,
                     },
                 });
-                setCookie('token', status.token, { req, res });
+                setCookie('token', status.token, { req, res, maxAge: 31536000 });
             } else {
-                setCookie('token', logins[0].token, { req, res });
+                setCookie('token', logins[0].token, { req, res, maxAge: 31536000 });
             }
-
-            res.status(200).redirect('/');
         }
+
+        res.status(200).redirect('/');
     }
 }
