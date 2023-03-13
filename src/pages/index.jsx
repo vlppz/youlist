@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Spinner, Button, Link, Input, ButtonSubmit, YtVid } from '../Components';
+import { Link, Spinner, YtVid } from '../Components';
 import { deleteCookie } from 'cookies-next';
 
 export default function Home() {
@@ -11,9 +11,7 @@ export default function Home() {
     const [vid_ids, setVid_ids] = useState([]);
 
     async function fetchLogin() {
-        var resp = await axios.post('/api/checkLogin');
-
-        return resp;
+        return await axios.post('/api/checkLogin');
     }
 
     useEffect(() => {
@@ -85,20 +83,20 @@ export default function Home() {
                                     }}
                                 />
                             </div>
-                            <Button
+                            <button
                                 disabled={submitted}
-                                text={
-                                    submitted ? (
-                                        <div className="flex items-center">
-                                            <Spinner className="mr-2 h-5 w-5 border-2 border-t-white dark:border-t-black" />
-                                            <span>Please wait...</span>
-                                        </div>
-                                    ) : (
-                                        <span>Log out</span>
-                                    )
-                                }
                                 onClick={logOut}
-                            />
+                                className="button"
+                            >
+                                {submitted ? (
+                                    <div className="flex items-center">
+                                        <Spinner className="mr-2 h-5 w-5 border-2 border-t-white dark:border-t-black" />
+                                        <span>Please wait...</span>
+                                    </div>
+                                ) : (
+                                    <span>Log out</span>
+                                )}
+                            </button>
                         </nav>
 
                         <div className="mt-10 flex flex-col items-center justify-center">
@@ -109,13 +107,15 @@ export default function Home() {
                                 className="mb-5 flex flex-col items-center justify-center"
                                 onSubmit={handleSubmit}
                             >
-                                <Input
-                                    className="mb-5"
+                                <input
+                                    className="input mb-5"
                                     placeholder="Link to youtube video"
                                 />
                                 <div>
-                                    <ButtonSubmit text="Add to list!" className="mr-5" />
-                                    <Button text="Share!" />
+                                    <button type="submit" className="button mr-5">
+                                        Add to list!
+                                    </button>
+                                    <button className="button">Share!</button>
                                 </div>
                             </form>
 

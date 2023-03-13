@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Input, ButtonSubmit, Spinner } from '../Components';
+import { Spinner } from '../Components';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -54,17 +54,17 @@ export default function Login() {
                     onSubmit={handleSubmit}
                 >
                     <h1 className="mb-2 text-4xl font-light dark:text-white">Login: </h1>
-                    <Input
+                    <input
                         type="text"
                         name="username"
-                        className="mb-5"
+                        className="input mb-5"
                         placeholder="Username"
                         required={true}
                     />
-                    <Input
+                    <input
                         type="password"
                         name="password"
-                        className="mb-2"
+                        className="input mb-2"
                         placeholder="Password"
                         required={true}
                     />
@@ -74,19 +74,16 @@ export default function Login() {
                     >
                         I don&apos;t have an account
                     </Link>
-                    <ButtonSubmit
-                        text={
-                            submitted ? (
-                                <div className="flex items-center">
-                                    <Spinner className="mr-2 h-5 w-5 border-2 border-t-white dark:border-t-black" />
-                                    <span>Please wait...</span>
-                                </div>
-                            ) : (
-                                <span>Login</span>
-                            )
-                        }
-                        disabled={submitted}
-                    />
+                    <button disabled={submitted} className="button" type="submit">
+                        {submitted ? (
+                            <div className="flex items-center">
+                                <Spinner className="mr-2 h-5 w-5 border-2 border-t-white dark:border-t-black" />
+                                <span>Please wait...</span>
+                            </div>
+                        ) : (
+                            <span>Login</span>
+                        )}
+                    </button>
                 </form>
             </div>
             <ToastContainer position="bottom-center" theme="light" transition={Zoom} />

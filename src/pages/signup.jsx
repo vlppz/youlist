@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { Input, ButtonSubmit, Spinner } from '../Components';
+import { Spinner } from '../Components';
 import { toast, ToastContainer } from 'react-toastify';
 import { Zoom } from 'react-toastify';
 import { useRouter } from 'next/router';
@@ -25,7 +25,7 @@ export default function Register() {
     }, [query]);
 
     function handlePassChange(event) {
-        if (event.target.value != '') {
+        if (event.target.value !== '') {
             setPass(event.target.value);
 
             checkPassRetype(event.target.value, document.getElementById('pass2'));
@@ -110,50 +110,47 @@ export default function Register() {
                     <h1 className="mb-2 text-4xl font-light dark:text-white">
                         Register:{' '}
                     </h1>
-                    <Input
+                    <input
                         type="text"
                         name="username"
-                        className="mb-1"
+                        className="input mb-1"
                         placeholder="Username"
                         required={true}
                     />
-                    <Input
+                    <input
                         type="email"
                         name="email"
-                        className="mb-4"
+                        className="input mb-4"
                         placeholder="Email"
                         required={true}
                     />
-                    <Input
+                    <input
                         type="password"
                         name="password"
-                        className="mb-1"
+                        className="input mb-1"
                         placeholder="Password"
                         onChange={handlePassChange}
                         required={true}
                     />
-                    <Input
+                    <input
                         type="password"
                         id="pass2"
                         name="password2"
-                        className="mb-5 border-red-300 hover:border-red-500 focus:border-red-500 dark:border-red-500 dark:hover:border-red-300 dark:focus:border-red-300"
+                        className="input mb-5 border-red-300 hover:border-red-500 focus:border-red-500 dark:border-red-500 dark:hover:border-red-300 dark:focus:border-red-300"
                         placeholder="Retype password"
                         onChange={handlePassRetypeChange}
                         required={true}
                     />
-                    <ButtonSubmit
-                        text={
-                            submitted ? (
-                                <div className="flex items-center">
-                                    <Spinner className="mr-2 h-5 w-5 border-2 border-t-white dark:border-t-black" />
-                                    <span>Please wait...</span>
-                                </div>
-                            ) : (
-                                <span>Register</span>
-                            )
-                        }
-                        disabled={submitted}
-                    />
+                    <button className="button" disabled={submitted}>
+                        {submitted ? (
+                            <div className="flex items-center">
+                                <Spinner className="mr-2 h-5 w-5 border-2 border-t-white dark:border-t-black" />
+                                <span>Please wait...</span>
+                            </div>
+                        ) : (
+                            <span>Register</span>
+                        )}
+                    </button>
                 </form>
             </div>
 
