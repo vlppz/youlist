@@ -19,47 +19,47 @@
 }
 
 .card {
-    @apply flex flex-col items-center rounded-lg bg-gray-100 p-7 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-200 hover:bg-opacity-70 hover:shadow-xl dark:bg-gray-700 dark:shadow-slate-800 dark:hover:bg-gray-600 dark:hover:shadow-gray-800 sm:flex-row
+    @apply flex flex-col items-center rounded-lg bg-gray-100 p-7 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-200 hover:bg-opacity-70 hover:shadow-xl dark:bg-gray-700 dark:shadow-slate-800 dark:hover:bg-gray-600 dark:hover:shadow-gray-800 sm:flex-row;
 }
 
 .cardCustom {
-    @apply flex flex-row items-center rounded-lg bg-gray-100 p-7 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-200 hover:bg-opacity-70 hover:shadow-xl dark:bg-gray-700 dark:shadow-slate-800 dark:hover:bg-gray-600 dark:hover:shadow-gray-800
+    @apply flex flex-row items-center rounded-lg bg-gray-100 p-7 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-200 hover:bg-opacity-70 hover:shadow-xl dark:bg-gray-700 dark:shadow-slate-800 dark:hover:bg-gray-600 dark:hover:shadow-gray-800;
 }
 
 .sidebar {
-    @apply h-full w-4/12 rounded-br-3xl rounded-tr-3xl bg-gray-200 p-3 sm:w-2/12
+    @apply h-full w-4/12 rounded-br-3xl rounded-tr-3xl bg-gray-200 p-3 sm:w-2/12;
 }
 
 .sidebarLinkActive {
-    @apply w-full rounded-xl bg-black pt-3 pb-3 text-white transition-all duration-700 ease-in-out hover:bg-gray-800 hover:shadow-2xl
+    @apply w-full rounded-xl bg-black pt-3 pb-3 text-white transition-all duration-700 ease-in-out hover:bg-gray-800 hover:shadow-2xl;
 }
 
 .sidebarLink {
-    @apply w-full rounded-xl bg-gray-500 pt-3 pb-3 text-white transition-all duration-700 ease-in-out hover:bg-gray-700 hover:shadow-2xl
+    @apply w-full rounded-xl bg-gray-500 pt-3 pb-3 text-white transition-all duration-700 ease-in-out hover:bg-gray-700 hover:shadow-2xl;
 }
 
 .cardList {
-    @apply flex flex-row items-center rounded-lg bg-gray-100 p-7 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-200 hover:bg-opacity-70 hover:shadow-xl dark:bg-gray-700 dark:shadow-slate-800 dark:hover:bg-gray-600 dark:hover:shadow-gray-800
+    @apply flex flex-row items-center rounded-lg bg-gray-100 p-7 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-200 hover:bg-opacity-70 hover:shadow-xl dark:bg-gray-700 dark:shadow-slate-800 dark:hover:bg-gray-600 dark:hover:shadow-gray-800;
 }
 
 .cardListItem {
-    @apply mt-5 flex flex-row items-center rounded-lg bg-gray-500 p-3 text-white shadow-md transition-all duration-500 ease-in-out dark:bg-gray-500 dark:shadow-slate-600 dark:hover:shadow-gray-600
+    @apply mt-5 flex flex-row items-center rounded-lg bg-gray-500 p-3 text-white shadow-md transition-all duration-500 ease-in-out dark:bg-gray-500 dark:shadow-slate-600 dark:hover:shadow-gray-600;
 }
 
 .input {
-    @apply rounded-lg border-2 border-solid border-gray-400 p-2 text-lg outline-none transition-all duration-300 ease-in-out hover:border-gray-600 focus:border-gray-600 focus:shadow-lg dark:border-gray-500 dark:bg-slate-800 dark:text-white dark:hover:border-gray-300 dark:focus:border-gray-300 dark:focus:shadow-slate-800
+    @apply rounded-lg border-2 border-solid border-gray-400 p-2 text-lg outline-none transition-all duration-300 ease-in-out hover:border-gray-600 focus:border-gray-600 focus:shadow-lg dark:border-gray-500 dark:bg-slate-800 dark:text-white dark:hover:border-gray-300 dark:focus:border-gray-300 dark:focus:shadow-slate-800;
 }
 
 .inputFile {
-    @apply rounded-lg border-2 border-none outline-none transition-all duration-300 ease-in-out file:mt-2 file:mr-3 file:transform file:cursor-pointer file:rounded-lg file:border-none file:bg-gray-600 file:p-2 file:text-white file:transition-all file:duration-500 file:ease-in-out hover:file:-translate-y-1 hover:file:bg-gray-800 hover:file:shadow-2xl focus:shadow-lg dark:file:bg-gray-300 dark:file:text-gray-600 dark:hover:file:bg-white dark:hover:file:shadow-gray-700 max-sm:text-white
+    @apply rounded-lg border-2 border-none outline-none transition-all duration-300 ease-in-out file:mt-2 file:mr-3 file:transform file:cursor-pointer file:rounded-lg file:border-none file:bg-gray-600 file:p-2 file:text-white file:transition-all file:duration-500 file:ease-in-out hover:file:-translate-y-1 hover:file:bg-gray-800 hover:file:shadow-2xl focus:shadow-lg dark:file:bg-gray-300 dark:file:text-gray-600 dark:hover:file:bg-white dark:hover:file:shadow-gray-700 max-sm:text-white;
 }
 
 .tabSelected {
-    @apply px-20 py-3 bg-black text-white
+    @apply bg-black px-20 py-3 text-white;
 }
 
 .tab {
-    @apply text-white px-10 py-3 bg-gray-500 hover:bg-gray-600
+    @apply bg-gray-500 px-10 py-3 text-white hover:bg-gray-600;
 }
 
 .spinner {
