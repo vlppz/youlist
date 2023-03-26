@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, Spinner, YtVid } from '../Components';
 import { deleteCookie } from 'cookies-next';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 
 export default function Home() {
     const [loaded, setLoaded] = useState(false);
@@ -15,7 +16,7 @@ export default function Home() {
     }
 
     useEffect(() => {
-        var loggedin = true;
+        let loggedin = true;
         Promise.all([fetchLogin()]).then((res) => {
             if (res[0].data.success) {
                 setUser(res[0].data.user);
@@ -57,6 +58,26 @@ export default function Home() {
         }
 
         setVid_ids([...vid_ids, vid_id]);
+    }
+
+    function handleDelete(idx) {
+        let tmp = [];
+
+        for (let i = 0; i < vid_ids.length; i++) {
+            if (i !== idx) {
+                tmp.push(vid_ids[i]);
+            }
+        }
+
+        setVid_ids(tmp);
+    }
+
+    function handleShare() {
+        const link = document.getElementById('link');
+
+        link.href = '/open?vids=' + vid_ids.toString();
+
+        link.classList.remove('-z-10', 'absolute', 'left-0', 'top-0', 'opacity-0');
     }
 
     return (
@@ -111,19 +132,42 @@ export default function Home() {
                                     className="input mb-5"
                                     placeholder="Link to youtube video"
                                 />
+                                <a
+                                    href=""
+                                    id="link"
+                                    className="absolute top-0 left-0 -z-10 mb-5 text-blue-500 opacity-0 transition-all duration-300 ease-in-out hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500"
+                                >
+                                    Link to your list
+                                </a>
                                 <div>
                                     <button type="submit" className="button mr-5">
                                         Add to list!
                                     </button>
-                                    <button className="button">Share!</button>
+                                    <button
+                                        type="button"
+                                        className="button"
+                                        onClick={handleShare}
+                                    >
+                                        Share!
+                                    </button>
                                 </div>
                             </form>
 
                             {vid_ids.map((el, idx) => (
                                 <div key={idx} className="mb-5 flex">
-                                    <h1 className="mr-5 text-2xl dark:text-white">
-                                        {idx + 1}.
-                                    </h1>
+                                    <div className="mr-5 flex flex-col items-center">
+                                        <h1 className="mb-2 text-2xl dark:text-white">
+                                            {idx + 1}.
+                                        </h1>
+                                        <button
+                                            className="buttonSimple"
+                                            onClick={() => {
+                                                handleDelete(idx);
+                                            }}
+                                        >
+                                            <RiDeleteBin2Fill />
+                                        </button>
+                                    </div>
                                     <YtVid id={el} />
                                 </div>
                             ))}

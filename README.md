@@ -1,6 +1,6 @@
 # Youlist
 
-## Watch [Youtube](https://youtube.com) videos together
+## Create and share lists of [Youtube](https://youtube.com) videos
 
 ## Built with:
 

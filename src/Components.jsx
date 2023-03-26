@@ -134,6 +134,7 @@ function YtVid(props) {
             className={props.className}
             width={props.width}
             height={props.height}
+            id={props.elId}
             src={'https://www.youtube.com/embed/' + props.id}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
