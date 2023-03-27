@@ -1,6 +1,8 @@
 # [Youlist](https://youlist.vercel.app)
+\
+![logo](logo.png)
 
-## Create and share lists of [Youtube](https://youtube.com) videos
+## Create and share lists of [Youtube](https://yout\\ube.com) videos
 
 ## Built with:
 
