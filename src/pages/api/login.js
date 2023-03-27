@@ -17,7 +17,7 @@ export default async function login(req, res) {
         });
 
         if (user.length === 0) {
-            res.redirect('/err-login');
+            return res.redirect('/err-login');
         } else {
             var logins = await prisma.userLogin.findMany({
                 where: {
@@ -38,6 +38,6 @@ export default async function login(req, res) {
             }
         }
 
-        res.redirect('/');
+        return res.redirect('/');
     }
 }

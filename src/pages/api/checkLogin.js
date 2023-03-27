@@ -23,15 +23,17 @@ export default async function reg(req, res) {
                             id: status[0].user_id,
                         },
                     });
-                    res.status(200).json({ success: true, user: user[0].username });
+                    return res
+                        .status(200)
+                        .json({ success: true, user: user[0].username });
                 } else {
-                    res.status(200).json({ success: false });
+                    return res.status(200).json({ success: false });
                 }
             } else {
-                res.status(200).json({ success: false });
+                return res.status(200).json({ success: false });
             }
         } else {
-            res.status(200).json({ success: false });
+            return res.status(200).json({ success: false });
         }
     }
 }
