@@ -84,7 +84,10 @@ export default function Home() {
         <main>
             <Head>
                 <title>Youlist</title>
-                <meta name="description" content="Watch youtube videos together" />
+                <meta
+                    name="description"
+                    content="Create and share lists of Youtube videos"
+                />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
