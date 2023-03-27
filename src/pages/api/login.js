@@ -17,7 +17,7 @@ export default async function login(req, res) {
         });
 
         if (user.length === 0) {
-            res.status(200).redirect('/login?error=Incorrect username or password!');
+            res.status(200).redirect('/err-login');
         } else {
             var logins = await prisma.userLogin.findMany({
                 where: {
