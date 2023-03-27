@@ -13,10 +13,10 @@ export default async function reg(req, res) {
                     pass_hash: shajs('sha256').update(req.body.password).digest('hex'),
                 },
             });
-            res.status(200).redirect('/reg-success');
+            res.redirect('/reg-success');
         } catch (e) {
             if (e.code === 'P2002') {
-                res.status(200).redirect('/usr-exists');
+                res.redirect('/usr-exists');
             }
         }
     }
