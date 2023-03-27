@@ -5,14 +5,14 @@ import { setCookie } from 'cookies-next';
 const prisma = new PrismaClient();
 
 export default async function login(req, res) {
-    if (req.method === 'POST') {
+    if (req.method === 'GET') {
         var shajs = require('sha.js');
         const ip = requestIp.getClientIp(req);
 
         const user = await prisma.user.findMany({
             where: {
-                username: req.body.username,
-                pass_hash: shajs('sha256').update(req.body.password).digest('hex'),
+                username: req.query.username,
+                pass_hash: shajs('sha256').update(req.query.password).digest('hex'),
             },
         });
 

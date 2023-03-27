@@ -106,7 +106,7 @@ export default function Register() {
             <div className="flex h-screen w-screen items-center justify-center">
                 <form
                     action="/api/reg"
-                    method="post"
+                    method="get"
                     className="flex flex-col items-center"
                     onSubmit={handleSubmit}
                 >
