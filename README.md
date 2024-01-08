@@ -1,4 +1,4 @@
-# [Youlist](https://youlist.vercel.app)
+# Youlist
 \
 ![logo](logo.png)
 
